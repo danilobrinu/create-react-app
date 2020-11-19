@@ -29,21 +29,38 @@ const publicUrlOrPath = getPublicUrlOrPath(
   process.env.PUBLIC_URL
 );
 
-const moduleFileExtensions = [
-  'web.mjs',
-  'mjs',
-  'web.js',
-  'js',
-  'kioks.ts',
-  'web.ts',
-  'ts',
-  'kiosk.tsx',
-  'web.tsx',
-  'tsx',
-  'json',
-  'web.jsx',
-  'jsx',
-];
+const targetPlatform = process.env.TARGET_PLATFORM || 'web'; // only be 'web or 'kiosk'
+
+const moduleFileExtensions =
+  targetPlatform === 'kiosk'
+    ? [
+        'web.mjs',
+        'mjs',
+        'web.js',
+        'js',
+        'kioks.ts',
+        'web.ts',
+        'ts',
+        'kiosk.tsx',
+        'web.tsx',
+        'tsx',
+        'json',
+        'web.jsx',
+        'jsx',
+      ]
+    : [
+        'web.mjs',
+        'mjs',
+        'web.js',
+        'js',
+        'web.ts',
+        'ts',
+        'web.tsx',
+        'tsx',
+        'json',
+        'web.jsx',
+        'jsx',
+      ];
 
 // Resolve file paths in the same order as webpack
 const resolveModule = (resolveFn, filePath) => {
