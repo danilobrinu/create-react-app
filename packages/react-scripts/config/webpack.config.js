@@ -752,7 +752,7 @@ module.exports = function (webpackEnv) {
         }),
       new ESLintPlugin({
         // Plugin options
-        extensions: ['js', 'mjs', 'jsx', 'ts', 'tsx'],
+        extensions: ['js', 'mjs', 'jsx', 'kiosk.ts', 'web.ts', 'ts', 'kiosk.tsx', 'web.tsx', 'tsx'],
         formatter: require.resolve('react-dev-utils/eslintFormatter'),
         eslintPath: require.resolve('eslint'),
         context: paths.appSrc,
